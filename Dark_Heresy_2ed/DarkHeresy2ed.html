@@ -22,6 +22,8 @@
 
 <input type="radio" class="sheet-tab sheet-tab8" name="attr_core-tab" value="8" title="Ship" />
 <span class="sheet-tab sheet-tab8" style='line-height: 40px;'>Ship</span>
+<button class='clear minimisable_infographic_override' type='roll' name='scatter' value="&{template:dh2ed} {{character= @{character_name}}} {{name=Scatter}} {{scatter-range= [[(?{Degrees of Failiure|1})+?{Modifier|0}]]}} {{scatter-direction=[[1d10]]}}">Scatter</button>
+
 
 <br><br>
 <!-- End Tab setup -->
@@ -2970,15 +2972,10 @@
 
 <!--Roll Template-->
 <rolltemplate class="sheet-rolltemplate-dh2ed">
-	<table>
-		<tr>
-			<th colspan="2" class="sheet-title">{{character}}: {{name}}</th>
-		</tr>
-		<tr>
-			<th colspan="2">
-				<img alt="spacer" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Dark_Heresy_2ed/img/spacer.png"
-					class="sheet-rolltemplate-spacer"></th>
-		</tr>
+	<div class="sheet-rolltemplate-header">
+		<span class="sheet-title">{{character}}: {{name}}</span>
+		<img alt="spacer" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Dark_Heresy_2ed/img/spacer.png" class="sheet-rolltemplate-spacer">
+	</div>
 		{{#skill}}
 		<tr>
 			<td><span class="sheet-tcat">Skill: </span></td>
@@ -3145,6 +3142,23 @@
 			<td><span class="sheet-inlinerollresult">{{initiative}}</span></td>
 		</tr>
 		{{/initiative}}
+		{{#scatter-range}}
+		<div class="sheet-rolltemplate-body">
+			{{#rollBetween() scatter-direction 1 1}}   <img src="https://raw.githubusercontent.com/johnmoney-code/roll20-character-sheets/Only-War-Enhanced/Only-War-Enhanced/images/Scatter/1-scatter-NW.png">{{/rollBetween() scatter-direction 1 1}}
+			{{#rollBetween() scatter-direction 2 2}}   <img src="https://raw.githubusercontent.com/johnmoney-code/roll20-character-sheets/Only-War-Enhanced/Only-War-Enhanced/images/Scatter/2-scatter-N.png">{{/rollBetween() scatter-direction 2 2}}
+			{{#rollBetween() scatter-direction 3 3}}   <img src="https://raw.githubusercontent.com/johnmoney-code/roll20-character-sheets/Only-War-Enhanced/Only-War-Enhanced/images/Scatter/3-scatter-NE.png">{{/rollBetween() scatter-direction 3 3}}
+			{{#rollBetween() scatter-direction 4 4}}   <img src="https://raw.githubusercontent.com/johnmoney-code/roll20-character-sheets/Only-War-Enhanced/Only-War-Enhanced/images/Scatter/4-scatter-W.png">{{/rollBetween() scatter-direction 4 4}}
+			{{#rollBetween() scatter-direction 5 5}}   <img src="https://raw.githubusercontent.com/johnmoney-code/roll20-character-sheets/Only-War-Enhanced/Only-War-Enhanced/images/Scatter/5-scatter-E.png">{{/rollBetween() scatter-direction 5 5}}
+			{{#rollBetween() scatter-direction 6 7}}   <img src="https://raw.githubusercontent.com/johnmoney-code/roll20-character-sheets/Only-War-Enhanced/Only-War-Enhanced/images/Scatter/6-7-scatter-SW.png">{{/rollBetween() scatter-direction 6 7}}
+			{{#rollBetween() scatter-direction 8 8}}   <img src="https://raw.githubusercontent.com/johnmoney-code/roll20-character-sheets/Only-War-Enhanced/Only-War-Enhanced/images/Scatter/8-scatter-S.png">{{/rollBetween() scatter-direction 8 8}}
+			{{#rollBetween() scatter-direction 9 10}} <img src="https://raw.githubusercontent.com/johnmoney-code/roll20-character-sheets/Only-War-Enhanced/Only-War-Enhanced/images/Scatter/9-0-scatter-SE.png">{{/rollBetween() scatter-direction 9 10}}
+		</div>
+		<div class="sheet-rolltemplate-footer">
+			<img alt="spacer" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Dark_Heresy_2ed/img/spacer.png"
+				class="sheet-rolltemplate-spacer sheet-invert">
+			<span class="sheet-tcat">Range: </span><span class="sheet-inlinerollresult">{{scatter-range}}</span><span class="sheet-tcat"> meters</span>
+		</div>
+		{{/scatter-range}}
 	</table>
 </rolltemplate>
 <rolltemplate class="sheet-rolltemplate-dh2ed-dmg">
